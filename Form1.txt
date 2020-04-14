@@ -11,23 +11,31 @@
         }
 
         private void button7_Click(object sender, EventArgs e)
-        {        
-
+        {
+            if (textBox1.Text == "0" || flag_press == 1)
+            {
+                textBox1.Text = ((Button)sender).Text;
+                flag_press = 0;
+            }
+            else
+                textBox1.Text += ((Button)sender).Text;
         }
 
         private void button_plus_minus_Click(object sender, EventArgs e)
-        {        
-
+        {
+            textBox1.Text = (Convert.ToDouble(textBox1.Text) * (-1)).ToString();
         }
 
         private void button_point_Click(object sender, EventArgs e)
         {
-
+            if (textBox1.Text != null && flag == 0)
+                textBox1.Text += ",";
+            flag = 1;
         }
 
         private void button_CE_Click(object sender, EventArgs e)
         {
-            
+            textBox1.Text = "0";
         }
 
         private void button_Del_Click(object sender, EventArgs e)
