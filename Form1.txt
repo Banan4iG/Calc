@@ -32,21 +32,39 @@
 
         private void button_Del_Click(object sender, EventArgs e)
         {
-
+        if (Convert.ToDouble(textBox1.Text) < 10.0 && Convert.ToDouble(textBox1.Text) >= 0.0 && flag == 0)
+                textBox1.Text = "0";
+            else
+                textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1, 1);
         }
 
         private void button_pow_Click(object sender, EventArgs e)
         {
-
+        textBox1.Text = Math.Pow(Convert.ToDouble(textBox1.Text), 2).ToString();
         }
 
         private void button_sqrt_Click(object sender, EventArgs e)
         {
-
+         if (Convert.ToDouble(textBox1.Text) < 0)
+                textBox1.Text = "Введены не верные данные";
+            else
+                textBox1.Text = Math.Pow(Convert.ToDouble(textBox1.Text), 0.5).ToString();
         }
 
         private void button_equal_Click(object sender, EventArgs e)
         {
+         switch (flag_znak)
+            {
+                case 1:
+                    textBox1.Text = Convert.ToString(peremen + Convert.ToDouble(textBox1.Text)); break;
+                case 2:
+                    textBox1.Text = Convert.ToString(peremen - Convert.ToDouble(textBox1.Text)); break;
+                case 3:
+                    textBox1.Text = Convert.ToString(peremen * Convert.ToDouble(textBox1.Text)); break;
+                case 4:
+                    textBox1.Text = Convert.ToString(peremen / Convert.ToDouble(textBox1.Text)); break;
+                default: textBox1.Text = "0"; break;
+            }
 
         }
 
